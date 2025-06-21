@@ -9,8 +9,19 @@ import { getRecentPosts } from '@/lib/data-utils'
 
 const blog = await getRecentPosts(SITE.featuredPostCount)
 
-// Safe fallback headline
-const headline = "🚀 Discover the Smartest Tools on the Internet"
+// 5 catchy titles that rotate daily
+const HEADLINES = [
+  "🚀 Discover the Smartest Tools on the Internet",
+  "📈 Start Your Journey to Passive Income with AI Tools",
+  "🧠 Unlock Hidden Tools & Affiliate Strategies That Actually Work",
+  "🔥 Best Kept Internet Secrets for 2025",
+  "💡 Explore Powerful AI Tools to Automate Your Success"
+]
+
+// rotate headline daily
+const now = new Date()
+const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
+const headline = HEADLINES[dayOfYear % HEADLINES.length]
 ---
 
 <Layout class="max-w-3xl">
@@ -23,18 +34,18 @@ const headline = "🚀 Discover the Smartest Tools on the Internet"
           {headline}
         </h1>
         <p class="text-muted-foreground text-base">
-          Welcome to your new favorite resource for AI tools, affiliate strategies, and digital growth.
+          Your go-to destination for AI tools, affiliate insights, and digital business strategies.
         </p>
       </div>
       <div class="p-6 pt-0 text-muted-foreground text-sm space-y-2">
         <p>
-          We share powerful tools and automation tips to help you build faster, grow smarter, and succeed online.
+          Discover game-changing platforms, automation tactics, and tools that actually move the needle. Whether you're a marketer, creator, or builder — this is your hub for smarter internet strategies.
         </p>
         <p>
-          Whether you're into affiliate marketing, YouTube automation, or digital tools — you're in the right place.
+          Learn with us. Experiment with us. Grow with us.
         </p>
         <p>
-          🧠 Learn with us. Grow with us.
+          ✨ New content posted daily using AI-powered generation.
         </p>
       </div>
     </div>
