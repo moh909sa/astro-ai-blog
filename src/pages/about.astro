@@ -1,12 +1,7 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
-import Link from '@/components/Link.astro'
 import PageHead from '@/components/PageHead.astro'
-import ProjectCard from '@/components/ProjectCard.astro'
 import Layout from '@/layouts/Layout.astro'
-import { getAllProjects } from '@/lib/data-utils'
-
-const projects = await getAllProjects()
 ---
 
 <Layout class="max-w-3xl">
@@ -16,31 +11,20 @@ const projects = await getAllProjects()
   <section>
     <div class="min-w-full">
       <div class="prose mb-8">
-        <p class="mt-0">
-          astro-erudite is an opinionated, unstyled static blogging template
-          that prioritizes simplicity and performance, built with <Link
-            href="https://astro.build"
-            external
-            underline>Astro</Link
-          >, <Link href="https://tailwindcss.com" external underline
-            >Tailwind</Link
-          >, and <Link href="https://ui.shadcn.com" external underline
-            >shadcn/ui</Link
-          >. It provides a clean foundation for your content while being
-          extremely easy to customize.
+        <h1>About Growth Engine</h1>
+        <p>
+          Welcome to <strong>Growth Engine</strong> — your gateway to discovering the smartest tools and strategies on the internet.
         </p>
         <p>
-          To learn more about the philosophy behind this template, check out the
-          following blog post: <Link
-            href="/blog/the-state-of-static-blogs"
-            underline>The State of Static Blogs in 2024</Link
-          >.
+          We explore the world of <strong>AI-powered solutions</strong>, emerging platforms, and underground tactics that help creators, entrepreneurs, and innovators get ahead.
         </p>
-      </div>
-
-      <h2 class="mb-4 text-2xl font-medium">Example Projects Listing</h2>
-      <div class="flex flex-col gap-4">
-        {projects.map((project) => <ProjectCard project={project} />)}
+        <blockquote>
+          🔍 Dive deep into the web, test hidden tools, and bring you the ones that actually work.
+        </blockquote>
+        <p>
+          Whether you're building, scaling, or just getting started — you're in the right place.
+        </p>
+        <p>Let’s grow together 🚀</p>
       </div>
     </div>
   </section>
