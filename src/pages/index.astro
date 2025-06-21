@@ -9,7 +9,7 @@ import { getRecentPosts } from '@/lib/data-utils'
 
 const blog = await getRecentPosts(SITE.featuredPostCount)
 
-// 5 catchy titles that rotate daily
+// Rotating catchy headlines
 const HEADLINES = [
   "🚀 Discover the Smartest Tools on the Internet",
   "📈 Start Your Journey to Passive Income with AI Tools",
@@ -18,9 +18,11 @@ const HEADLINES = [
   "💡 Explore Powerful AI Tools to Automate Your Success"
 ]
 
-// rotate headline daily
+// Fix: use getTime() to calculate dayOfYear
 const now = new Date()
-const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
+const dayOfYear = Math.floor(
+  (now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24
+)
 const headline = HEADLINES[dayOfYear % HEADLINES.length]
 ---
 
