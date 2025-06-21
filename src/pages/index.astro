@@ -8,50 +8,61 @@ import Layout from '@/layouts/Layout.astro'
 import { getRecentPosts } from '@/lib/data-utils'
 
 const blog = await getRecentPosts(SITE.featuredPostCount)
-
-// Headline rotation based on day of year
-const HEADLINES = [
-  "🚀 Discover the Smartest Tools on the Internet",
-  "📈 Start Your Journey to Passive Income with AI Tools",
-  "🧠 Unlock Hidden Tools & Affiliate Strategies That Actually Work",
-  "🔥 Best Kept Internet Secrets for 2025",
-  "💡 Explore Powerful AI Tools to Automate Your Success"
-]
-
-const now = new Date()
-const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24)
-const headline = HEADLINES[dayOfYear % HEADLINES.length]
 ---
 
 <Layout class="max-w-3xl">
   <PageHead slot="head" title="Home" />
-
   <section>
-    <div class="rounded-lg border bg-background">
+    <div class="rounded-lg border">
       <div class="flex flex-col space-y-1.5 p-6">
-        <h1 class="text-4xl font-extrabold text-foreground">
-          {headline}
-        </h1>
-        <p class="text-muted-foreground text-base">
-          Welcome to your favorite source for AI-powered tools, affiliate strategies, and internet secrets.
+        <h3 class="text-3xl leading-none font-medium">er·u·dite</h3>
+        <p class="text-muted-foreground text-sm">
+          /ˈer(y)əˌdīt/ &bull; <span class="font-medium">adjective</span>
         </p>
       </div>
-      <div class="p-6 pt-0 text-muted-foreground text-sm space-y-2">
-        <p>
-          This site shares powerful tools, automation techniques, and underrated strategies that help you work smarter, grow faster, and build passive income online.
+      <div class="p-6 pt-0">
+        <p class="text-muted-foreground mb-2 text-sm">
+          astro-erudite is an opinionated, unstyled static blogging template
+          built with <Link
+            href="https://astro.build"
+            class="text-foreground"
+            external
+            underline>Astro</Link
+          >, <Link
+            href="https://tailwindcss.com"
+            class="text-foreground"
+            external
+            underline>Tailwind</Link
+          >, and <Link
+            href="https://ui.shadcn.com"
+            class="text-foreground"
+            external
+            underline>shadcn/ui</Link
+          >. Extraordinarily loosely based on the <Link
+            href="https://astro-micro.vercel.app/"
+            class="text-foreground"
+            external
+            underline>Astro Micro</Link
+          > theme.
         </p>
-        <p>
-          Whether you're a marketer, content creator, or just curious about the hidden corners of the web — you're in the right place.
-        </p>
-        <p>
-          🔍 Learn with us. Experiment with us. Grow with us.
+        <p class="text-muted-foreground text-sm">
+          To use this template, check out the <Link
+            href="https://github.com/jktrn/astro-erudite"
+            class="text-foreground"
+            underline
+            external>GitHub</Link
+          > repository. To learn more about why this template exists, read this blog
+          post: <Link
+            href="/blog/the-state-of-static-blogs"
+            class="text-foreground"
+            underline>The State of Static Blogs in 2024</Link
+          >.
         </p>
       </div>
     </div>
   </section>
-
-  <section class="flex flex-col gap-y-4 mt-10">
-    <h2 class="text-2xl font-medium">📝 Latest Articles</h2>
+  <section class="flex flex-col gap-y-4">
+    <h2 class="text-2xl font-medium">Latest posts</h2>
     <ul class="flex flex-col gap-y-4">
       {
         blog.map((post) => (
@@ -61,15 +72,15 @@ const headline = HEADLINES[dayOfYear % HEADLINES.length]
         ))
       }
     </ul>
-    <div class="flex justify-center mt-4">
+    <div class="flex justify-center">
       <Link
         href="/blog"
         class={buttonVariants({ variant: 'ghost' }) + ' group'}
       >
-        See all posts
-        <span class="ml-1.5 transition-transform group-hover:translate-x-1">
-          &rarr;
-        </span>
+        See all posts <span
+          class="ml-1.5 transition-transform group-hover:translate-x-1"
+          >&rarr;</span
+        >
       </Link>
     </div>
   </section>
