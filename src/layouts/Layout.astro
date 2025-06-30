@@ -19,6 +19,21 @@ const { class: className } = Astro.props
 <html class="bg-background text-foreground" lang={SITE.locale}>
   <Head>
     <slot name="head" />
+    
+    <!-- ✅ إضافة سكربت Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (typeof window !== "undefined") {
+        window.netlifyIdentity && window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    
   </Head>
   <body>
     <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans">
