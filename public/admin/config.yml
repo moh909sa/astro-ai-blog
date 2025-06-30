@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-local_backend: true
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -15,6 +14,6 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Cover Image", name: "cover", widget: "image" }
+      - { label: "Cover", name: "cover", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
